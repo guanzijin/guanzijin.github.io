@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>测试博客</title>
+    <link href="/2023/07/20/www/"/>
+    <url>/2023/07/20/www/</url>
+    
+    <content type="html"><![CDATA[<p>1.为什么需要打包工具？<br>开发时，我们会使用框架 (React、Vue) ，ES6 模块化语法，Less&#x2F;Sass 等 css 预处理器等语法进行开发<br>这样的代码要想在浏览器运行必须经过编译成浏览器能识别的JS、Css 等语法，才能运行。<br>所以我们需要打包工具帮我们做完这些事<br>除此之外，打包工具还能压缩代码、做兼容性处理、提升代码性能等.<br>2.有哪些打包工具？</p><ul><li>Grunt</li><li>Gulp</li><li>Parcel</li><li>Webpack</li><li>Rollup</li><li>Vite</li><li>…<br>最流行的就是webpack<br>3.基本使用<br>webpack是一个静态资源打包工具。<br>它会以一个或多个文件作为打包的入口，将我们整个项目所有文件编译组合成一个或多个文件输出出去。<br>输出的文件就是编译好的文件，就可以在浏览器端运行了。<br>将webpack输出的文件叫做bundle。<br>4.功能<br>webpack功能有限：</li><li>开发模式：仅能编译js中的ES Module语法（开发阶段）</li><li>生产模式：能编译JS中的ES Module语法，能压缩JS代码（要部署上线）<br>5.开始使用<br>1.资源目录<br>webpack_code #项目根目录（所有指令必须在这个目录运行）<br>  src # 项目源码目录<br>  js # js文件目录<br>      count.js<br>      sum.js<br>  main.js # 项目主文件<br>2.创建文件</li><li>count.js<br>export default function count(x,y) {<br>return x-y;<br>}</li><li>sum.js<br>export default function sum(…args) {<br>return args.reduce((p,c) &#x3D;&gt;p+c,0);<br>}</li><li>main.js<br>import count from “.&#x2F;js&#x2F;count”;<br>import sum from “.&#x2F;js&#x2F;sum”;<br>console.log(count(2,1));<br>console.log(sum(1,2,3,4));</li><li>index.html<br>!<script src ="../src/main.js"></script>//浏览器不能识别es6的东西，会报错3.下载依赖<br>打开终端，来到项目根目录。运行一下指令：</li><li>初始化package.json<br>npm init -y<br>此时会生成一个基础的package.json文件。<br>需要注意的是package.json中 name 字段不能叫做webpack，否则下一步会报错</li><li>下载依赖<br>npm i webpack webpack-cli -D<br>&#x2F;&#x2F;webpack是我们用的<br>&#x2F;&#x2F;webpack-cli是指令<br>&#x2F;&#x2F;npm用来下载包<br>&#x2F;&#x2F;npx会将node_module中的.bin临时添加为环境变量，<br>就可以访问环境变量中的应用程序<br>4.启动Webpack</li><li>开发模式<br>npx webpack .&#x2F;src&#x2F;main.js –mode&#x3D;development<br>&#x2F;&#x2F;   .&#x2F;src&#x2F;main.js相当于告诉webpack从那个入口进入</li><li>生产模式<br>npx webpack .&#x2F;src&#x2F;main.js –mode&#x3D;production<br>&#x2F;&#x2F;生产环境下，会对代码进行压缩<br>有了webpack 5.72.0 compilce successfully in 86ms 就说明快好了<br>Npx webpack:用来运行本地安装webpack包的。<br>.&#x2F;src&#x2F;main.js：指定webpack从main.js文件开始打包，但不会打包main.js，还会将其依赖也一起打包进来<br>–mode&#x3D;xxx:指定模式（环境）。<br>5.观察输出文件<br>默认webpack会将文件打包输出到dist目录下，我们查看dist目录下文件情况就好了<br>6.总结<br>webpack本身功能就比较少，只能处理js资源，一旦遇到css等其它资源就会报错。所以我们学习webpack，就是主要学习如何处理其它资源。</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关子金的第一篇博客</title>
+    <link href="/2023/07/20/%E5%85%B3%E5%AD%90%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2023/07/20/%E5%85%B3%E5%AD%90%E9%87%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<p>Git是一个分布式版本控制系统，是由Linus Torvalds为了管理Linux内核而创建的。与传统的集中式版本控制工具（如SVN）不同，Git允许多个开发者在不同的地方独立地工作，并将他们的代码合并到同一个代码库中。</p><p>Git的主要特点包括：</p><ol><li>分布式：Git不像传统的集中式版本控制工具那样有一个中央服务器，每个开发者都可以拥有自己的本地代码库，以及与其它开发者共享的远程代码库。每个开发者的代码库都可以看作是一个完整的、可运行的代码库，这使得团队协作和代码管理更加高效和灵活。</li><li>高效：Git使用快照（snapshot）来存储文件变化，而不是像其它版本控制工具那样存储差异（delta），这使得Git的操作速度很快，即使处理庞大的项目也能够快速完成代码提交、回滚等操作。</li><li>安全：Git使用SHA-1算法来计算每个快照的唯一标识符，因此可以保证文件内容的完整性和安全性。</li><li>分支管理：Git提供了强大的分支管理功能，可以在不影响主线开发的情况下进行新功能的开发、调试和测试。</li><li>开源免费：Git是一个完全开源的软件项目，任何人都可以使用、修改和分发。</li></ol><p>Git的基本工作流程包括：</p><ol><li>创建一个本地代码库，或者从远程代码库中克隆（clone）一个代码库。</li><li>在本地代码库中进行开发，创建新的分支，增加、修改和删除文件。</li><li>将提交的变更推送（push）到远程代码库中，与其它开发者分享代码。</li><li>在远程代码库中进行合并（merge）操作，将不同开发者提交的代码合并为一个整体。</li></ol><p>总之，Git是一个功能强大的版本控制工具，具有高效、安全和灵活等特点，已成为现代软件开发项目必不可少的工具之一。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2023/07/20/hello-world/"/>
+    <url>/2023/07/20/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
